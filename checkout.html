@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement - EShop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-indigo-600">EShop</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-gray-600 font-semibold">Paiement sécurisé</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Steps -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex items-center justify-center mb-8">
+            <div class="flex items-center">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-semibold">
+                        1
+                    </div>
+                    <span class="ml-2 text-indigo-600 font-semibold">Informations</span>
+                </div>
+                <div class="w-20 h-1 bg-indigo-600 mx-4"></div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-semibold">
+                        2
+                    </div>
+                    <span class="ml-2 text-indigo-600 font-semibold">Paiement</span>
+                </div>
+                <div class="w-20 h-1 bg-gray-300 mx-4"></div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-gray-300 text-gray-600 rounded-full flex items-center justify-center font-semibold">
+                        3
+                    </div>
+                    <span class="ml-2 text-gray-500">Confirmation</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Checkout Form -->
+            <div class="lg:col-span-2">
+                <!-- Customer Information -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-6">Informations de livraison</h2>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Prénom *</label>
+                                <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Jean">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Nom *</label>
+                                <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Dupont">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-2">Email *</label>
+                            <input type="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="jean.dupont@example.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-2">Téléphone *</label>
+                            <input type="tel" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="+33 6 12 34 56 78">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-2">Adresse *</label>
+                            <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="123 Rue de la République">
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Code postal *</label>
+                                <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="75001">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Ville *</label>
+                                <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Paris">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-2">Pays *</label>
+                            <select required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                <option>France</option>
+                                <option>Belgique</option>
+                                <option>Suisse</option>
+                                <option>Luxembourg</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-2">Instructions de livraison (optionnel)</label>
+                            <textarea rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Ex: Laisser le colis à la réception"></textarea>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-6">Paiement par carte bancaire</h2>
+
+                    <!-- Stripe Card Element Placeholder -->
+                    <div id="card-element" class="p-4 border border-gray-300 rounded-lg bg-gray-50 mb-4">
+                        <!-- Stripe Elements will be inserted here -->
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Numéro de carte</label>
+                                <div class="px-4 py-3 border border-gray-300 rounded-lg bg-white">
+                                    <span class="text-gray-400">•••• •••• •••• ••••</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-900 mb-2">Date d'expiration</label>
+                                    <div class="px-4 py-3 border border-gray-300 rounded-lg bg-white">
+                                        <span class="text-gray-400">MM / AA</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-900 mb-2">CVV</label>
+                                    <div class="px-4 py-3 border border-gray-300 rounded-lg bg-white">
+                                        <span class="text-gray-400">•••</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="card-errors" class="text-red-600 text-sm"></div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-4">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Récapitulatif</h2>
+
+                    <!-- Order Items -->
+                    <div class="space-y-4 mb-6 pb-6 border-b border-gray-200">
+                        <div class="flex items-center gap-3">
+                            <div class="w-16 h-16 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
+                                <span class="text-xs text-gray-400">Image</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h4 class="text-sm font-semibold text-gray-900 truncate">MacBook Pro 14"</h4>
+                                <p class="text-xs text-gray-600">Qté: 1</p>
+                                <p class="text-sm font-semibold text-indigo-600">2 499€</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-16 h-16 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
+                                <span class="text-xs text-gray-400">Image</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h4 class="text-sm font-semibold text-gray-900 truncate">AirPods Pro</h4>
+                                <p class="text-xs text-gray-600">Qté: 2</p>
+                                <p class="text-sm font-semibold text-indigo-600">558€</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pricing -->
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between text-gray-700">
+                            <span>Sous-total</span>
+                            <span>3 057€</span>
+                        </div>
+                        <div class="flex justify-between text-gray-700">
+                            <span>Livraison</span>
+                            <span class="text-green-600 font-semibold">Gratuite</span>
+                        </div>
+                        <div class="flex justify-between text-gray-700">
+                            <span>TVA (20%)</span>
+                            <span>611,40€</span>
+                        </div>
+                        <div class="border-t border-gray-200 pt-3">
+                            <div class="flex justify-between text-lg font-bold text-gray-900">
+                                <span>Total</span>
+                                <span class="text-indigo-600">3 668,40€</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition mb-4">
+                        Valider le paiement
+                    </button>
+
+                    <!-- Security Info -->
+                    <div class="flex items-center justify-center text-sm text-gray-600">
+                        <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                        <span>Paiement 100% sécurisé</span>
+                    </div>
+
+                    <!-- Accepted Payment Methods -->
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="text-xs text-gray-600 text-center mb-3">Moyens de paiement acceptés</p>
+                        <div class="flex justify-center gap-2">
+                            <div class="w-12 h-8 bg-gray-100 rounded flex items-center justify-center">
+                                <svg class="w-10 h-6" viewBox="0 0 40 24" fill="none">
+                                    <rect width="40" height="24" rx="4" fill="#1434CB"/>
+                                </svg>
+                            </div>
+                            <div class="w-12 h-8 bg-gray-100 rounded flex items-center justify-center">
+                                <svg class="w-10 h-6" viewBox="0 0 40 24" fill="none">
+                                    <rect width="40" height="24" rx="4" fill="#EB001B"/>
+                                </svg>
+                            </div>
+                            <div class="w-12 h-8 bg-gray-100 rounded flex items-center justify-center">
+                                <svg class="w-10 h-6" viewBox="0 0 40 24" fill="none">
+                                    <rect width="40" height="24" rx="4" fill="#FF5F00"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center text-gray-400 text-sm">
+                <p>&copy; 2025 EShop. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

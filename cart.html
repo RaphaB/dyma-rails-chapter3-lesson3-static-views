@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - EShop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Hide number input spinners */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-indigo-600">EShop</a>
+                    <div class="hidden md:flex ml-10 space-x-8">
+                        <a href="products.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2">Produits</a>
+                        <a href="products.html?category=electronique" class="text-gray-700 hover:text-indigo-600 px-3 py-2">Électronique</a>
+                        <a href="products.html?category=vetements" class="text-gray-700 hover:text-indigo-600 px-3 py-2">Vêtements</a>
+                        <a href="products.html?category=livres" class="text-gray-700 hover:text-indigo-600 px-3 py-2">Livres</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Rechercher..." class="w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <a href="cart.html" class="relative">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <span class="absolute -top-2 -right-2 bg-indigo-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </a>
+                    <a href="profile.html" class="text-gray-700 hover:text-indigo-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Mon panier</h1>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Cart Items -->
+            <div class="lg:col-span-2">
+                <!-- Cart Item 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+                    <div class="flex items-center gap-6">
+                        <div class="w-24 h-24 bg-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span class="text-xs text-gray-400">Image</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                                <a href="product-detail.html" class="hover:text-indigo-600">MacBook Pro 14"</a>
+                            </h3>
+                            <p class="text-gray-600 text-sm mb-2">Puce M3 Pro - 16 Go - 512 Go SSD</p>
+                            <div class="text-indigo-600 font-semibold text-lg">2 499€</div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center border border-gray-300 rounded-lg">
+                                <button class="px-3 py-2 hover:bg-gray-50">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                                    </svg>
+                                </button>
+                                <input type="number" value="1" min="1" class="w-16 text-center border-x border-gray-300 py-2 focus:outline-none">
+                                <button class="px-3 py-2 hover:bg-gray-50">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="text-red-600 hover:text-red-800 p-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Item 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+                    <div class="flex items-center gap-6">
+                        <div class="w-24 h-24 bg-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span class="text-xs text-gray-400">Image</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                                <a href="product-detail.html" class="hover:text-indigo-600">AirPods Pro</a>
+                            </h3>
+                            <p class="text-gray-600 text-sm mb-2">Écouteurs sans fil avec réduction de bruit</p>
+                            <div class="text-indigo-600 font-semibold text-lg">279€</div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center border border-gray-300 rounded-lg">
+                                <button class="px-3 py-2 hover:bg-gray-50">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                                    </svg>
+                                </button>
+                                <input type="number" value="2" min="1" class="w-16 text-center border-x border-gray-300 py-2 focus:outline-none">
+                                <button class="px-3 py-2 hover:bg-gray-50">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="text-red-600 hover:text-red-800 p-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continue Shopping Button -->
+                <div class="mt-6">
+                    <a href="products.html" class="inline-flex items-center text-indigo-600 hover:text-indigo-800">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        Continuer mes achats
+                    </a>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-md p-6 sticky top-4">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Résumé de la commande</h2>
+
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between text-gray-700">
+                            <span>Sous-total (3 articles)</span>
+                            <span>3 057€</span>
+                        </div>
+                        <div class="flex justify-between text-gray-700">
+                            <span>Livraison</span>
+                            <span class="text-green-600 font-semibold">Gratuite</span>
+                        </div>
+                        <div class="flex justify-between text-gray-700">
+                            <span>TVA (20%)</span>
+                            <span>611,40€</span>
+                        </div>
+                        <div class="border-t border-gray-200 pt-3">
+                            <div class="flex justify-between text-lg font-bold text-gray-900">
+                                <span>Total</span>
+                                <span class="text-indigo-600">3 668,40€</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Button -->
+                    <a href="checkout.html" class="block w-full bg-indigo-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
+                        Passer la commande
+                    </a>
+
+                    <!-- Security Info -->
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <div class="flex items-center text-sm text-gray-600">
+                            <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                            <span>Paiement 100% sécurisé</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600 mt-2">
+                            <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Livraison gratuite dès 50€</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600 mt-2">
+                            <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z"></path>
+                            </svg>
+                            <span>Retour gratuit sous 30 jours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty Cart Message (hidden by default, shown when cart is empty) -->
+        <!--
+        <div class="bg-white rounded-lg shadow-md p-12 text-center">
+            <svg class="w-24 h-24 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Votre panier est vide</h2>
+            <p class="text-gray-600 mb-6">Ajoutez des produits pour commencer vos achats</p>
+            <a href="products.html" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
+                Découvrir nos produits
+            </a>
+        </div>
+        -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">EShop</h3>
+                    <p class="text-gray-400">Votre boutique en ligne de confiance</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="products.html" class="text-gray-400 hover:text-white">Produits</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">À propos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Mon compte</h4>
+                    <ul class="space-y-2">
+                        <li><a href="profile.html" class="text-gray-400 hover:text-white">Profil</a></li>
+                        <li><a href="orders.html" class="text-gray-400 hover:text-white">Mes commandes</a></li>
+                        <li><a href="cart.html" class="text-gray-400 hover:text-white">Panier</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Aide</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Livraison</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Retours</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 EShop. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
