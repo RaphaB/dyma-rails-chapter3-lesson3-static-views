@@ -122,57 +122,48 @@
                             >
                         </div>
 
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-900 mb-2">Adresse</label>
+                            <input
+                                type="text"
+                                value="123 Rue de la République"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            >
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Code postal</label>
+                                <input
+                                        type="text"
+                                        value="75001"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                >
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Ville</label>
+                                <input
+                                        type="text"
+                                        value="Paris"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                >
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-2">Pays</label>
+                                <input
+                                        type="text"
+                                        value="France"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                >
+                            </div>
+                        </div>
+
                         <div class="flex justify-end">
                             <button class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
                                 Enregistrer les modifications
                             </button>
                         </div>
                     </form>
-                </div>
-
-                <!-- Address Information -->
-                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-900">Adresses</h2>
-                        <button class="text-indigo-600 hover:text-indigo-800 font-semibold">
-                            + Ajouter une adresse
-                        </button>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- Address Card 1 -->
-                        <div class="border border-gray-300 rounded-lg p-4 relative">
-                            <div class="absolute top-4 right-4">
-                                <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full font-semibold">
-                                    Par défaut
-                                </span>
-                            </div>
-                            <h4 class="font-semibold text-gray-900 mb-2">Domicile</h4>
-                            <p class="text-gray-700">123 Rue de la République</p>
-                            <p class="text-gray-700">75001 Paris</p>
-                            <p class="text-gray-700">France</p>
-                            <div class="mt-4 flex gap-2">
-                                <button class="text-sm text-indigo-600 hover:text-indigo-800">Modifier</button>
-                                <span class="text-gray-300">|</span>
-                                <button class="text-sm text-red-600 hover:text-red-800">Supprimer</button>
-                            </div>
-                        </div>
-
-                        <!-- Address Card 2 -->
-                        <div class="border border-gray-300 rounded-lg p-4">
-                            <h4 class="font-semibold text-gray-900 mb-2">Bureau</h4>
-                            <p class="text-gray-700">456 Avenue des Champs-Élysées</p>
-                            <p class="text-gray-700">75008 Paris</p>
-                            <p class="text-gray-700">France</p>
-                            <div class="mt-4 flex gap-2">
-                                <button class="text-sm text-indigo-600 hover:text-indigo-800">Modifier</button>
-                                <span class="text-gray-300">|</span>
-                                <button class="text-sm text-red-600 hover:text-red-800">Supprimer</button>
-                                <span class="text-gray-300">|</span>
-                                <button class="text-sm text-gray-600 hover:text-gray-800">Définir par défaut</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Change Password -->
